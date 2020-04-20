@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/magicZap.ogg-b027e43a4b2b5fc8269857cba0607632.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/magicZap.ogg"
+dest_files=[ "res://.import/magicZap.ogg-b027e43a4b2b5fc8269857cba0607632.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

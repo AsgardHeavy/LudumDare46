@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/TreeOfLife.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/TreeOfLifeBase.svg" type="Texture" id=2]
+[ext_resource path="res://UI/VictoryScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/DefeatScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sound/oofSizeMega.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/victoryKazoo.ogg" type="AudioStream" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 91.0584
+
+[node name="TreeOfLife" type="StaticBody2D"]
+collision_layer = 12
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -53.0484, 47.7494, -32.5605, 29.3521, -4.12833, 28.934, 19.7045, 17.2266, 56.9172, 15.5541, 72.8058, 37.2964, 65.6978, 66.1467, 41.0287, 76.1816, 33.0844, 66.5648, 14.6871, 61.9655, 0.470993, 56.1118, -20.0169, 66.9829, -31.3062, 54.0212, -57.2296, 60.293 )
+
+[node name="InteractionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius"]
+visible = false
+position = Vector2( 6.82745, 1.9507 )
+shape = SubResource( 1 )
+
+[node name="SeasonTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="VictoryTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="VictoryScreen" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="DefeatScreen" parent="." instance=ExtResource( 4 )]
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="VictorySFX" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 6 )
+
+[node name="DefeatSFX" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 5 )
+[connection signal="body_shape_entered" from="InteractionRadius" to="." method="_on_InteractionRadius_body_shape_entered"]
+[connection signal="timeout" from="SeasonTimer" to="." method="_on_SeasonTimer_timeout"]
+[connection signal="timeout" from="VictoryTimer" to="." method="_on_VictoryTimer_timeout"]

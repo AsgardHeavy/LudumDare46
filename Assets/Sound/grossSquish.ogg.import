@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grossSquish.ogg-b51e330714172cc45da0de1625cc9352.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/grossSquish.ogg"
+dest_files=[ "res://.import/grossSquish.ogg-b51e330714172cc45da0de1625cc9352.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

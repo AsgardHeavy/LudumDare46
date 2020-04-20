@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/victoryKazoo.ogg-83c06a202ccd7f6b1990892932817297.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/victoryKazoo.ogg"
+dest_files=[ "res://.import/victoryKazoo.ogg-83c06a202ccd7f6b1990892932817297.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

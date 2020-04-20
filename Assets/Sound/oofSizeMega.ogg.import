@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oofSizeMega.ogg-7f7931733267b83779e6e6aeee7630f6.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/oofSizeMega.ogg"
+dest_files=[ "res://.import/oofSizeMega.ogg-7f7931733267b83779e6e6aeee7630f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

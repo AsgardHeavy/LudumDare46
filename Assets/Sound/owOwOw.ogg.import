@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/owOwOw.ogg-1916c902bfe1101628ca0eac4d2624ea.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/owOwOw.ogg"
+dest_files=[ "res://.import/owOwOw.ogg-1916c902bfe1101628ca0eac4d2624ea.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

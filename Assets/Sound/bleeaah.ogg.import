@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bleeaah.ogg-6125c7406bd9474027321b5a90b1066c.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/bleeaah.ogg"
+dest_files=[ "res://.import/bleeaah.ogg-6125c7406bd9474027321b5a90b1066c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

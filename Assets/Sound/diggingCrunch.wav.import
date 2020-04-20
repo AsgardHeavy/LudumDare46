@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/diggingCrunch.wav-7c8f9a8ba6826d39e6b4bb8d8a9beb54.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/diggingCrunch.wav"
+dest_files=[ "res://.import/diggingCrunch.wav-7c8f9a8ba6826d39e6b4bb8d8a9beb54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

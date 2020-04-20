@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Muzak.ogg-64c6eefe7d34b54de828f8282c60d581.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Muzak.ogg"
+dest_files=[ "res://.import/Muzak.ogg-64c6eefe7d34b54de828f8282c60d581.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

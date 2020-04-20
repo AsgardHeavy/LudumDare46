@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/victoryKazoo.wav-06cf1dbdbef16ea99cac29e283a8127c.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/victoryKazoo.wav"
+dest_files=[ "res://.import/victoryKazoo.wav-06cf1dbdbef16ea99cac29e283a8127c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/coconutHorses.ogg-2534e159a5f38655497cb0bb34c61dc2.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/coconutHorses.ogg"
+dest_files=[ "res://.import/coconutHorses.ogg-2534e159a5f38655497cb0bb34c61dc2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

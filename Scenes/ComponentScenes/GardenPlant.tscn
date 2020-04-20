@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/GardenPlant.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/GardenPlants/SnapDragons.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/Sound/grossSquish.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/ComponentScenes/IchorParticles.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 37.0135
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 78.4092
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 0.25, 0.25 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "elder_activity"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "mature_activity"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "sapling_activity"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1 ]
+}
+
+[node name="GardenPlant" type="StaticBody2D" groups=[
+"GardenPlant",
+]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
+deathParticle = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="GardenPlantCollider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="ActionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionRadius"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="ClickableZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableZone"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="GrowTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="GardenerTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 4 )
+anims/elder_activity = SubResource( 5 )
+anims/mature_activity = SubResource( 6 )
+anims/sapling_activity = SubResource( 7 )
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 3 )
+attenuation = 0.0192366
+
+[node name="ActionSFX" type="AudioStreamPlayer2D" parent="Sound"]
+[connection signal="body_shape_entered" from="ActionRadius" to="." method="_on_ActionRadius_body_shape_entered"]
+[connection signal="input_event" from="ClickableZone" to="." method="_on_ClickableZone_input_event"]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_GrowTimer_timeout"]
+[connection signal="timeout" from="GardenerTimer" to="." method="_on_GardenerTimer_timeout"]

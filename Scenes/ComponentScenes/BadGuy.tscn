@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/BadGuy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/BadGuys/armoredAdventurer.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/HighTextTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Sound/bleeaah.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scenes/ComponentScenes/BloodParticles.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 31.9795
+
+[node name="BadGuy" type="KinematicBody2D" groups=[
+"BadGuys",
+]]
+collision_mask = 7
+script = ExtResource( 1 )
+deathParticle = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DialogueLabel" type="Label" parent="."]
+visible = false
+margin_left = 40.0
+margin_top = -8.0
+margin_right = 80.0
+margin_bottom = 6.0
+theme = ExtResource( 3 )
+text = "ARGH!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueTimer" type="Timer" parent="DialogueLabel"]
+wait_time = 2.0
+one_shot = true
+
+[node name="BattleCryTimer" type="Timer" parent="DialogueLabel"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="DeathCry" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 4 )
+volume_db = 1.01
+
+[node name="BattleCry" type="AudioStreamPlayer2D" parent="Sound"]
+
+[node name="GetBackToWorkTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+[connection signal="timeout" from="DialogueLabel/DialogueTimer" to="." method="_on_DialogueTimer_timeout"]
+[connection signal="timeout" from="DialogueLabel/BattleCryTimer" to="." method="_on_BattleCryTimer_timeout"]
+[connection signal="timeout" from="GetBackToWorkTimer" to="." method="_on_GetBackToWorkTimer_timeout"]
